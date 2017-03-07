@@ -29,7 +29,7 @@ setxkbmap sudo util-linux dbus wireshark ttf-freefont xauth supervisor busybox-s
 RUN mkdir ~/shashlik
 ENV platform linux
 RUN cd ~/shashlik && repo init -u https://github.com/shashlik/shashlik-manifest -p $platform
-RUN cd ~/shashlik && repo sync
+CMD cd ~/shashlik && repo sync
 
 ADD etc /etc
 
