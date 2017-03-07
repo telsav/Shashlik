@@ -29,6 +29,7 @@ setxkbmap sudo util-linux dbus wireshark ttf-freefont xauth supervisor busybox-s
 RUN mkdir ~/shashlik
 ENV platform linux
 RUN cd ~/shashlik && repo init -u https://github.com/shashlik/shashlik-manifest -p $platform
+RUN cd ~/shashlik && repo sync
 
 ADD etc /etc
 
@@ -40,4 +41,4 @@ EXPOSE 3389 22
 #WORKDIR /home/alpine
 #USER alpine xrdp
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf","cd ~/shashlik && repo sync"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
